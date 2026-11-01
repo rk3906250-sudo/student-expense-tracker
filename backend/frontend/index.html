@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Student Expense Tracker</h1>
+            <p>Manage your money smartly</p>
+        </header>
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Income</h3>
+                <h2 id="totalIncome">₹0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <h2 id="totalExpenses">₹0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Remaining Balance</h3>
+                <h2 id="balance">₹0</h2>
+            </div>
+
+        </section>
+
+        <!-- Expense Form -->
+        <section class="form-section">
+
+            <h2>Add New Expense</h2>
+
+            <form id="expenseForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Expense Name"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Education">Education</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <input type="date" id="date" required>
+
+                <button type="submit">Add Expense</button>
+
+            </form>
+
+            <hr>
+
+            <!-- Income Form -->
+            <h2>Add New Income</h2>
+
+            <form id="incomeForm">
+
+                <input
+                    type="text"
+                    id="incomeSource"
+                    placeholder="Income Source"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="incomeAmount"
+                    placeholder="Amount"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <input type="date" id="incomeDate" required>
+
+                <button type="submit">Add Income</button>
+
+            </form>
+
+        </section>
+
+        <!-- Category Summary -->
+        <section class="transactions">
+
+            <h2>Expense Category Summary</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total Spent</th>
+                    </tr>
+                </thead>
+
+                <tbody id="categoryList">
+                </tbody>
+            </table>
+
+        </section>
+
+        <!-- Spending Chart -->
+        <section class="transactions">
+
+            <h2>Spending by Category</h2>
+
+            <div style="max-width: 500px; margin: auto;">
+                <canvas id="expenseChart"></canvas>
+            </div>
+
+        </section>
+
+        <!-- Expense History -->
+        <section class="transactions">
+
+            <h2>Expense History</h2>
+            
+<input
+    type="text"
+    id="expenseSearch"
+    placeholder="Search by expense name or category..."
+>
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="expenseList">
+                </tbody>
+            </table>
+
+        </section>
+
+        <!-- Income History -->
+        <section class="transactions">
+
+            <h2>Income History</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody id="incomeList">
+                </tbody>
+            </table>
+
+        </section>
+
+    </div>
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
